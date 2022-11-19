@@ -1,1 +1,1 @@
-# thumbnail-getter
+# Thumbnail Getter
