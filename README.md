@@ -13,10 +13,10 @@ Download thumbnails for videos of a particular YouTube channel.
 0. (Make instructions better.)
 
 1. [Login into the google console](https://console.cloud.google.com/) and create credentials. API should be fine.
-   [auth]!(./docs/authentication.png)
+   ![auth](./docs/authentication.png)
 
 2. Enable YouTube Data API v3 via the console.
-   [enable]!(./docs/enable-api.png)
+   ![enable](./docs/enable-api.png)
 
 3. Set up `.env` file (have a look at `.env.example`):
 
