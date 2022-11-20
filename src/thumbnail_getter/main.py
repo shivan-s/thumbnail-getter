@@ -143,7 +143,7 @@ def query_channel() -> Channel:
             f"[bold cyan]{selected_channel.title}"
             + " - "
             + "[underline]"
-            + f"https://youtube.com/c/{selected_channel.channel_id}]"
+            + f"https://youtube.com/c/{selected_channel.channel_id}"
             + "[/underline][/]"
         )
         console.print(f"[bold]ID[/]: {selected_channel.channel_id}")
