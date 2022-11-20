@@ -1,6 +1,6 @@
 # Thumbnail Getter
 
-When prompted for a particular channel ID, it will download thumbnails :)
+Download thumbnails for videos of a particular YouTube channel.
 
 ## Requires
 
@@ -29,4 +29,14 @@ YT_APP_KEY=<PUT API KEY HERE>
 
 ```shell
 make run
+```
+
+## Contributing
+
+Be nice. Also, ensure you have the above requirements (plus `pre-commit`)
+
+Install pre-commit
+
+```
+pre-commit install
 ```

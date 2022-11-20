@@ -3,4 +3,4 @@
 from .google import connect_api
 from .logging import logger
 
-__all__ = ["connect_api"]
+__all__ = ["connect_api", "logger"]

@@ -1,13 +1,13 @@
 """Google stuff."""
-import logging
 import os
 
 import googleapiclient.discovery
 import googleapiclient.errors
+
 from utils.logging import logger
 
 
-def connect_api() -> type(googleapiclient.discovery.Resource):
+def connect_api() -> type[googleapiclient.discovery.Resource]:
     """Connect with youtube API."""
     api_service_name = "youtube"
     api_version = "v3"
