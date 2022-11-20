@@ -236,7 +236,7 @@ def get_videos(channel: Channel) -> VideoList:
         videos.append(video)
 
         with console.status(
-            f"Saving thumbnails for {video.title}...",
+            f"Saving thumbnails for [bold]{video.title}[/]...",
             spinner=f"dots{random.randint(2,12)}",
         ):
             r = _get_thumbnail(video.thumbnail_url)
