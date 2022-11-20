@@ -48,6 +48,19 @@ LOGGING_LEVEL=DEBUG
 ...
 ```
 
+## Progress
+
+### Todos
+
+- [ ] Make thumbnail downloader async
+- [ ] Write tests?
+- [ ] Create a web app?
+- [ ] Docs?
+
+### Progress reports
+
+- [21 Nov 22 - First Demo](https://youtu.be/YDUGIXwCZDg)
+
 ## Contributing
 
 Be nice. Also, ensure you have the above requirements (plus `pre-commit`)
@@ -57,10 +70,3 @@ Install pre-commit
 ```
 pre-commit install
 ```
-
-## TODOs
-
-- [ ] Make thumbnail downloader async
-- [ ] Write tests?
-- [ ] Create a web app?
-- [ ] Docs?
