@@ -1,2 +1,6 @@
 rich
 google-api-python-client
+httpx
+Pillow
+pydantic
+python-slugify

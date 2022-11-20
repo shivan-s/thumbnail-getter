@@ -1,1 +1,4 @@
 pytest
+ipdb
+flake8
+mypy

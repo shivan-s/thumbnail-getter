@@ -15,3 +15,6 @@ services:
     restart: unless-stopped
     volumes:
       - .:/code/
+    ports:
+      - 80:80
+      - 443:443
