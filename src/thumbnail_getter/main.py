@@ -243,14 +243,9 @@ def get_videos(channel: Channel) -> VideoList:
             img = Image.open(BytesIO(r.content))
             fmt: str = video.thumbnail_url.split(".")[-1]
             FORMATS = {"jpg": "JPEG"}
-            channel_fp = BASE_DIR / "media" / f"{channel.filename}"
+            channel_fp = MEDIA / f"{channel.filename}"
             channel_fp.mkdir(exist_ok=True, parents=True)
-            fp = (
-                BASE_DIR
-                / "media"
-                / f"{channel.filename}"
-                / f"{video.filename}"
-            )
+            fp = MEDIA / f"{channel.filename}" / f"{video.filename}"
             img.save(fp=fp, format=FORMATS.get(fmt.lower()))
 
     return VideoList(__root__=videos)
@@ -262,7 +257,7 @@ def main():
     channel: Channel = query_channel()
     videos: VideoList = get_videos(channel)
 
-    fp = BASE_DIR / "media" / f"{channel.filename}" / "data"
+    fp = MEDIA / f"{channel.filename}" / "data"
     fp.mkdir(exist_ok=True)
     with open(fp / "channel.json", "w") as f:
         json.dump(channel.json(), f)
