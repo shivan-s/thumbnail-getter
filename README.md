@@ -10,7 +10,13 @@ Download thumbnails for videos of a particular YouTube channel.
 
 ## Instructions
 
-0. (Make instructions better.)
+-1. (Make instructions better.)
+
+0. Clone the repo:
+
+```sh
+git clone https://github.com/shivan-s/thumbnail-getter
+```
 
 1. [Login into the google console](https://console.cloud.google.com/) and create credentials. API should be fine.
    ![auth](./docs/authentication.png)
