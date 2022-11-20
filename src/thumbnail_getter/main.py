@@ -88,7 +88,7 @@ def query_channel() -> Channel:
     """
     while True:
         q: str = Prompt.ask(
-            ":video_camera: Please enter a channel username",
+            ":video_camera: Search channel by name",
             default=DEFAULT_Q,
         )
         with console.status("Searching...", spinner="monkey"):
