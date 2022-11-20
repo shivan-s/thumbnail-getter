@@ -20,15 +20,26 @@ Download thumbnails for videos of a particular YouTube channel.
 
 3. Set up `.env` file (have a look at `.env.example`):
 
-```shell
+```sh
 # .env
+...
 YT_APP_KEY=<PUT API KEY HERE>
+...
 ```
 
 4. Run programme:
 
-```shell
+```bash
 make run
+```
+
+5. (optional) If you want to run logging at debug, set the environment variable:
+
+```sh
+# .env
+...
+LOGGING_LEVEL=DEBUG
+...
 ```
 
 ## Contributing
@@ -40,3 +51,10 @@ Install pre-commit
 ```
 pre-commit install
 ```
+
+## TODOs
+
+- [ ] Make thumbnail downloader async
+- [ ] Write tests?
+- [ ] Create a web app?
+- [ ] Docs?

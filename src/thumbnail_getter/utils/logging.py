@@ -6,7 +6,7 @@ import os
 from rich.logging import RichHandler
 
 FORMAT = "%(message)s"
-LEVEL = os.getenv("LOGGING_LEVEL", "DEBUG")
+LEVEL = os.getenv("LOGGING_LEVEL", "WARNING")
 DATEFMT = "[%X]"
 
 logging.basicConfig(
