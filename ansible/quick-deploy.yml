@@ -3,9 +3,9 @@
   hosts: 206.189.82.46
   become: true
   vars:
-    app_name: training
+    app_name: thumbnail
     repo_link: https://github.com/shivan-s/training
-    app_port: 8181
+    app_port: 8888
 
   tasks:
     - name: Git pull/clone {{ app_name }} repo
@@ -29,3 +29,9 @@
         cd /home/shivan/{{ app_name }} &&
         docker-compose down --remove-orphans &&
         docker-compose up -d --build
+
+    - name: Build docker image and run
+      shell: >
+        cd /home/shivan/{{ app_name }} &&
+        docker-compose -f ./docker/prod/docker-compose.yml down --remove-orphans &&
+        docker-compose -f ./docker/prod/docker-compose.yml up -d --build
