@@ -63,6 +63,7 @@ LOGGING_LEVEL=DEBUG
 ### Progress reports
 
 - [21 Nov 22 - First Demo](https://youtu.be/YDUGIXwCZDg)
+- [23 Nov 22 - Live API](https://youtu.be/Gd4dGOZiaPc)
 
 ## Contributing
 
