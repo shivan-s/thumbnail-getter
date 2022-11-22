@@ -4,14 +4,28 @@
 #
 #    pip-compile --output-file=requirements.txt requirements.in
 #
+anyio==3.6.2
+    # via
+    #   httpcore
+    #   starlette
+    #   watchfiles
+beautifulsoup4==4.11.1
+    # via -r requirements.in
 cachetools==5.2.0
     # via google-auth
 certifi==2022.9.24
-    # via requests
+    # via
+    #   httpcore
+    #   httpx
+    #   requests
 charset-normalizer==2.1.1
     # via requests
+click==8.1.3
+    # via uvicorn
 commonmark==0.9.1
     # via rich
+fastapi==0.87.0
+    # via -r requirements.in
 google-api-core==2.10.2
     # via google-api-python-client
 google-api-python-client==2.66.0
@@ -25,12 +39,29 @@ google-auth-httplib2==0.1.0
     # via google-api-python-client
 googleapis-common-protos==1.57.0
     # via google-api-core
+gunicorn==20.1.0
+    # via -r requirements.in
+h11==0.14.0
+    # via
+    #   httpcore
+    #   uvicorn
+httpcore==0.16.1
+    # via httpx
 httplib2==0.21.0
     # via
     #   google-api-python-client
     #   google-auth-httplib2
+httptools==0.5.0
+    # via uvicorn
+httpx==0.23.1
+    # via -r requirements.in
 idna==3.4
-    # via requests
+    # via
+    #   anyio
+    #   requests
+    #   rfc3986
+pillow==9.3.0
+    # via -r requirements.in
 protobuf==4.21.9
     # via
     #   google-api-core
@@ -41,12 +72,24 @@ pyasn1==0.4.8
     #   rsa
 pyasn1-modules==0.2.8
     # via google-auth
+pydantic==1.10.2
+    # via
+    #   -r requirements.in
+    #   fastapi
 pygments==2.13.0
     # via rich
 pyparsing==3.0.9
     # via httplib2
+python-dotenv==0.21.0
+    # via uvicorn
+python-slugify==7.0.0
+    # via -r requirements.in
+pyyaml==6.0
+    # via uvicorn
 requests==2.28.1
     # via google-api-core
+rfc3986[idna2008]==1.5.0
+    # via httpx
 rich==12.6.0
     # via -r requirements.in
 rsa==4.9
@@ -55,7 +98,31 @@ six==1.16.0
     # via
     #   google-auth
     #   google-auth-httplib2
+sniffio==1.3.0
+    # via
+    #   anyio
+    #   httpcore
+    #   httpx
+soupsieve==2.3.2.post1
+    # via beautifulsoup4
+starlette==0.21.0
+    # via fastapi
+text-unidecode==1.3
+    # via python-slugify
+typing-extensions==4.4.0
+    # via pydantic
 uritemplate==4.1.1
     # via google-api-python-client
 urllib3==1.26.12
     # via requests
+uvicorn[standard]==0.20.0
+    # via -r requirements.in
+uvloop==0.17.0
+    # via uvicorn
+watchfiles==0.18.1
+    # via uvicorn
+websockets==10.4
+    # via uvicorn
+
+# The following packages are considered to be unsafe in a requirements file:
+# setuptools

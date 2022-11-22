@@ -8,7 +8,7 @@ Download thumbnails for videos of a particular YouTube channel.
 - Docker compose
 - Makefile
 
-## Instructions
+## Instructions to run locally?
 
 -1. (Make instructions better.)
 
@@ -52,10 +52,10 @@ LOGGING_LEVEL=DEBUG
 
 ### Todos
 
+- [ ] (_in progress_) making into API
 - [ ] Make thumbnail downloader async
 - [ ] Write tests?
-- [ ] Create a web app?
-- [ ] Docs?
+- [ ] Productionize
 
 ### Progress reports
 

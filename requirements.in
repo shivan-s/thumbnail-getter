@@ -2,5 +2,9 @@ rich
 google-api-python-client
 httpx
 Pillow
-pydantic
 python-slugify
+fastapi
+uvicorn[standard]
+gunicorn
+pydantic
+beautifulsoup4
