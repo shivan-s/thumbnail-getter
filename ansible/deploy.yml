@@ -1,0 +1,73 @@
+---
+- name: Deployer Recipe
+  hosts: 206.189.82.46
+  become: true
+  vars:
+    app_name: training
+    repo_link: https://github.com/shivan-s/training
+    app_port: 8181
+    letsencrypt_email: shivan.sivakumaran@gmail.com
+
+  tasks:
+    - name: Installing nginx
+      apt:
+        name: nginx
+        state: present
+
+    - name: Copy {{ app_name }}.shivan.xyz nginx config
+      template:
+        src: "{{ app_name }}.shivan.xyz"
+        dest: /etc/nginx/sites-available/
+
+    - name: Activate the {{ app_name }}.shivan.xyz site
+      file:
+        src: /etc/nginx/sites-available/{{ app_name }}.shivan.xyz
+        dest: /etc/nginx/sites-enabled/{{ app_name }}.shivan.xyz
+        state: link
+
+    - name: Installing certbot using snap
+      shell: "snap install --classic certbot"
+
+    - name: Preparing certbot
+      file:
+        src: /snap/bin/certbot
+        dest: /usr/bin/certbot
+        state: link
+
+    - name: Generate certs
+      shell: >
+        certbot --nginx --email '{{ letsencrypt_email }}'
+        --non-interactive --agree-tos
+        -d '{{ app_name }}.shivan.xyz'
+
+    - name: Restart nginx.service
+      systemd:
+        state: restarted
+        name: nginx
+
+    - name: Create {{ app_name }} directory
+      file:
+        path: /home/shivan/{{ app_name }}
+        state: directory
+
+    - name: Git pull/clone {{ app_name }} repo
+      ansible.builtin.git:
+        repo: "{{ repo_link }}"
+        dest: /home/shivan/{{ app_name }}
+        single_branch: yes
+        version: main
+        update: yes
+
+    - name: Copy .env file for {{ app_name }} app
+      ansible.builtin.copy:
+        src: .env
+        dest: /home/shivan/{{ app_name }}/.env
+        owner: "shivan"
+        group: "shivan"
+        mode: "0644"
+
+    - name: Build docker image and run
+      shell: >
+        cd /home/shivan/{{ app_name }} &&
+        docker-compose down --remove-orphans &&
+        docker-compose up -d --build

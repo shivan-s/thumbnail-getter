@@ -5,16 +5,15 @@ services:
   app:
     container_name: thumbnail_getter_app
     image: thumbnail_getter:latest
-    stdin_open: true
-    tty: true
     build:
-      context: .
-      dockerfile: Dockerfile
+      context: ../..
+      dockerfile: ./docker/prod/Dockerfile
     env_file:
-      - .env
+      - ../../.env
     restart: unless-stopped
     volumes:
-      - .:/code/
+      - ../..:/code/
     ports:
       - 80:80
       - 443:443
+      - "${APP_PORT:-8888}:8000"

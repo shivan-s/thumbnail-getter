@@ -1,0 +1,30 @@
+upstream {{ app_name }}_web {
+	server 0.0.0.0:{{ app_port }};
+}
+
+server {
+	listen 80;
+	server_name {{ app_name }}.shivan.xyz;
+
+	location / {
+		include proxy_params;
+		proxy_pass http://{{ app_name }}_web;
+	}
+
+	location = / {
+		include proxy_params;
+		proxy_pass http://{{ app_name }}_web;
+	}
+
+   location /media/ {
+       root /home/shivan/{{ app_name }};
+    }
+
+    # location /static/ {
+    #    alias /home/shivan/{{ app_name }}/static;
+    # }
+
+}
+
+# TODO: change the config to below?
+# https://docs.gunicorn.org/en/latest/deploy.html

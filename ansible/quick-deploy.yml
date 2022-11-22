@@ -1,0 +1,31 @@
+---
+- name: Quick Deployer Recipe
+  hosts: 206.189.82.46
+  become: true
+  vars:
+    app_name: training
+    repo_link: https://github.com/shivan-s/training
+    app_port: 8181
+
+  tasks:
+    - name: Git pull/clone {{ app_name }} repo
+      ansible.builtin.git:
+        repo: "{{ repo_link }}"
+        dest: /home/shivan/{{ app_name }}
+        single_branch: yes
+        version: main
+        update: yes
+
+    - name: Copy .env file for {{ app_name }} app
+      ansible.builtin.copy:
+        src: .env
+        dest: /home/shivan/{{ app_name }}/.env
+        owner: "shivan"
+        group: "shivan"
+        mode: "0644"
+
+    - name: Build docker image and run
+      shell: >
+        cd /home/shivan/{{ app_name }} &&
+        docker-compose down --remove-orphans &&
+        docker-compose up -d --build
