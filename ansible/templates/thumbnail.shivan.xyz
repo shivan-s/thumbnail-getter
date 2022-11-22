@@ -15,3 +15,4 @@ server {
 		include proxy_params;
 		proxy_pass http://{{ app_name }}_web;
 	}
+}
