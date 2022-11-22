@@ -2,6 +2,9 @@
 
 Download thumbnails for videos of a particular YouTube channel.
 
+- [Live link - thumbnail.shivan.xyz](https://thumbnail.shivan.xyz)
+- [Documentation - thumbnail.shivan.xyz/docs](https://thumbnail.shivan.xyz/docs)
+
 ## Requires
 
 - Docker
