@@ -4,7 +4,7 @@
   become: true
   vars:
     app_name: thumbnail
-    repo_link: https://github.com/shivan-s/training
+    repo_link: https://github.com/shivan-s/thumbnail-getter
     app_port: 8888
 
   tasks:
@@ -33,5 +33,5 @@
     - name: Build docker image and run
       shell: >
         cd /home/shivan/{{ app_name }} &&
-        docker-compose -f ./docker/prod/docker-compose.yml down --remove-orphans &&
-        docker-compose -f ./docker/prod/docker-compose.yml up -d --build
+        docker-compose -f docker/prod/docker-compose.yml down --remove-orphans &&
+        docker-compose -f docker/prod/docker-compose.yml up -d --build
