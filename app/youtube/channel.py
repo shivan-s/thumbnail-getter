@@ -15,7 +15,7 @@ from .api import api
 def get_channel_id(handle: str) -> str | None:
     """Obtain a channel ID."""
     handle = parse_handle(handle)
-    r = httpx.get(f"{YOUTUBE_URL}{handle}")
+    r = httpx.get(f"{YOUTUBE_URL}{handle}", follow_redirects=True)
     if r.status_code == status.HTTP_200_OK:
         soup = BeautifulSoup(r.content, "html.parser")
         channel_id = soup.find("meta", attrs={"itemprop": "channelId"}).get(
